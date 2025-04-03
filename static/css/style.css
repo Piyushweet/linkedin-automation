@@ -1,0 +1,229 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styling with dark background and white text */
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #1C1C1C;
+    color: #fff;
+    line-height: 1.6;
+  }
+  
+  /* Container for centering content */
+  .container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  /* Header Section: Logo & Title */
+  .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .logo-container {
+    background: #1C1C1C;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 8px 8px 16px #141414, -8px -8px 16px #242424;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .brand-title {
+    font-size: 2rem;
+    color: #3A82F7;
+    margin: 0;
+  }
+  
+  .brand-tagline {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin: 0;
+  }
+  
+  /* -------------------------------
+     Tab Navigation Styles
+  ---------------------------------*/
+  .tabs {
+    margin-bottom: 2rem;
+  }
+  
+  .tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tab-button {
+    background-color: #1C1C1C;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #141414, -6px -6px 12px #242424;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  
+  .tab-button.active {
+    background-color: #3A82F7;
+    box-shadow: 8px 8px 16px #141414, -8px -8px 16px #242424;
+  }
+  
+  /* -------------------------------
+     Tab Content Styles
+  ---------------------------------*/
+  .tab-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  
+  /* -------------------------------
+     Card and Form Styling
+  ---------------------------------*/
+  .card {
+    background-color: #1C1C1C;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 10px 10px 20px #141414, -10px -10px 20px #242424;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 12px 12px 24px #141414, -12px -12px 24px #242424;
+  }
+  
+  .form-card h2 {
+    color: #3A82F7;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tooltip {
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 0.25rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 12px;
+    background-color: #1C1C1C;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: inset 4px 4px 8px #141414, inset -4px -4px 8px #242424;
+  }
+  
+  /* Password field container */
+  .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-wrapper input {
+    flex: 1;
+    padding-right: 3rem;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3A82F7;
+    font-size: 1.2rem;
+  }
+  
+  /* Button Styling */
+  button, #startScraping {
+    background-color: #1C1C1C;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #141414, -6px -6px 12px #242424;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  button:hover, #startScraping:hover {
+    transform: translateY(-2px);
+    box-shadow: 8px 8px 16px #141414, -8px -8px 16px #242424;
+  }
+  
+  button:active, #startScraping:active {
+    transform: translateY(2px);
+    box-shadow: inset 4px 4px 8px #141414, inset -4px -4px 8px #242424;
+  }
+  
+  /* Control Buttons for Connection Requests */
+  .control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .control-buttons button {
+    background-color: #3A82F7;
+    color: #1C1C1C;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px #141414, -4px -4px 8px #242424;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .control-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 12px #141414, -6px -6px 12px #242424;
+  }

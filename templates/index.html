@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LinkedIn Scraper & Connection App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="logo-row">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo-img">
+            </div>
+            <div class="logo-text">
+                <h1 class="brand-title">LinkedIn Scraper</h1>
+                <p class="brand-tagline">Effortlessly scrape and connect</p>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="scraping-tab">Scraping</button>
+                <button class="tab-button" data-tab="connection-tab">Connection Requests</button>
+            </div>
+            <div class="tab-content">
+                <!-- Scraping Tab Content -->
+                <div id="scraping-tab" class="tab-pane active">
+                    <div class="card form-card">
+                        <h2>Enter Scraping Details</h2>
+                        <form id="scraperForm" action="/start-scraping" method="POST">
+                            <!-- LinkedIn Credentials Section -->
+                            <div class="form-group">
+                                <label for="linkedinEmail">LinkedIn Email:</label>
+                                <input type="email" id="linkedinEmail" name="linkedinEmail" placeholder="your-email@example.com" required>
+                                <small class="tooltip">Enter your LinkedIn email address.</small>
+                            </div>
+                            <div class="form-group password-group">
+                                <label for="linkedinPassword">LinkedIn Password:</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="linkedinPassword" name="linkedinPassword" placeholder="Your password" required>
+                                    <button type="button" id="togglePassword" class="toggle-password">
+                                        <i class="eye-icon">👁</i>
+                                    </button>
+                                </div>
+                                <small class="tooltip">Enter your LinkedIn password. Click the eye icon to toggle visibility.</small>
+                            </div>
+
+                            <!-- Scraping Details -->
+                            <div class="form-group">
+                                <label for="companyUrl">Company URL:</label>
+                                <input type="url" id="companyUrl" name="companyUrl" placeholder="https://www.linkedin.com/company/your-company" required>
+                                <small class="tooltip">Enter the LinkedIn URL of the company you want to target.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="designationKeywords">Designation Keywords (separated by ;):</label>
+                                <input type="text" id="designationKeywords" name="designationKeywords" placeholder="Manager;Engineer;Developer" required>
+                                <small class="tooltip">Use semicolon (;) to separate multiple keywords.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="scrollCount">Scroll Count:</label>
+                                <input type="number" id="scrollCount" name="scrollCount" value="15" min="1" required>
+                                <small class="tooltip">This is the number of times the page will scroll to find profiles.</small>
+                            </div>
+                            <button type="submit" id="startScraping">Start Scraping</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Connection Requests Tab Content -->
+                <div id="connection-tab" class="tab-pane">
+                    <div class="card form-card">
+                        <h2>Send Connection Requests</h2>
+                        <form id="connectionForm" action="/start-connection" method="POST">
+                            <!-- LinkedIn Credentials (reuse for connection) -->
+                            <div class="form-group">
+                                <label for="connLinkedinEmail">LinkedIn Email:</label>
+                                <input type="email" id="connLinkedinEmail" name="linkedinEmail" placeholder="your-email@example.com" required>
+                                <small class="tooltip">Enter your LinkedIn email address.</small>
+                            </div>
+                            <div class="form-group password-group">
+                                <label for="connLinkedinPassword">LinkedIn Password:</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="connLinkedinPassword" name="linkedinPassword" placeholder="Your password" required>
+                                    <button type="button" id="togglePasswordConn" class="toggle-password">
+                                        <i class="eye-icon">👁</i>
+                                    </button>
+                                </div>
+                                <small class="tooltip">Enter your LinkedIn password. Click the eye icon to toggle visibility.</small>
+                            </div>
+
+                            <!-- Connection Request Details -->
+                            <div class="form-group">
+                                <label for="connection_urls">Profile URLs:</label>
+                                <textarea id="connection_urls" name="connection_urls" placeholder="Paste one or more LinkedIn profile URLs here, each on a new line." rows="5" required></textarea>
+                                <small class="tooltip">Enter one or more profile URLs (each on a new line or separated by commas).</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="message_template">Connection Message Template:</label>
+                                <textarea id="message_template" name="message_template" placeholder="{first_name}, Happy to connect!" rows="2" required>{first_name}, Happy to connect!</textarea>
+                                <small class="tooltip">Use the placeholder {first_name} to personalize the message.</small>
+                            </div>
+                            <button type="submit" id="startConnection">Send Connection Requests</button>
+                        </form>
+
+                        <!-- Control Buttons for Process -->
+                        <div class="control-buttons">
+                            <button id="pauseConnection">Pause</button>
+                            <button id="resumeConnection">Resume</button>
+                            <button id="stopConnection">Stop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
